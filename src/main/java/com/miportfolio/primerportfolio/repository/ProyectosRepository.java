@@ -1,13 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.miportfolio.primerportfolio.repository;
 
-/**
- *
- * @author Bruno.Porfidio
- */
-public class ProyectosRepository {
+
+import com.miportfolio.primerportfolio.model.Proyectos;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ProyectosRepository extends JpaRepository<Proyectos, Integer> {
+    
     
 }
