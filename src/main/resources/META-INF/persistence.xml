@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-  <persistence-unit name="com.miportfolio_primerportfolio_jar_0.0.1-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.apiportfolio_apiportfolio_jar_0.0.1-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.apiportfolio.apiportfolio.model.Usuario</class>
+    <class>com.apiportfolio.apiportfolio.model.Proyectos</class>
+    <class>com.apiportfolio.apiportfolio.model.Educacion</class>
+    <class>com.apiportfolio.apiportfolio.model.Skills</class>
+    <class>com.apiportfolio.apiportfolio.model.Experiencia</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://budwzbifttnsbil5yric-mysql.services.clever-cloud.com:3306/budwzbifttnsbil5yric?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
-      <property name="javax.persistence.jdbc.user" value="urshwnbuxhqyspjw"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/apibd?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+      <property name="javax.persistence.jdbc.user" value="admin"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="zJT9gfs8AQwwkuNZHod3"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>
