@@ -1,36 +1,25 @@
 package com.apiportfolio.apiportfolio.model;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+
 
 @Entity
 public class Usuario implements Serializable {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
     private Integer idUsuario;
     
-    
     private String nombre;
-    
-    
+   
     private String apellido;
-    
     
     private String correo;
     
-    
-    private String password;
-    
-    
-    
-    private String Sobre_Mi;
+    private String sobre_mi;
     
     
    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idEducacion")
@@ -46,13 +35,12 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(Integer idUsuario, String nombre, String apellido, String correo, String password, String Sobre_Mi) {
+    public Usuario(Integer idUsuario, String nombre, String apellido, String correo, String Sobre_Mi) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
-        this.password = password;
-        this.Sobre_Mi = Sobre_Mi;
+        this.sobre_mi = Sobre_Mi;
     }
 
     
@@ -88,20 +76,13 @@ public class Usuario implements Serializable {
         this.correo = correo;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public String getSobre_Mi() {
-        return Sobre_Mi;
+        return sobre_mi;
     }
 
     public void setSobre_Mi(String Sobre_Mi) {
-        this.Sobre_Mi = Sobre_Mi;
+        this.sobre_mi = Sobre_Mi;
     }
 
     

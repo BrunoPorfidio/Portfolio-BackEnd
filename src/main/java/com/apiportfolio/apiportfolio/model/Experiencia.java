@@ -1,11 +1,11 @@
 package com.apiportfolio.apiportfolio.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
 public class Experiencia implements Serializable {
@@ -25,14 +25,14 @@ public class Experiencia implements Serializable {
     private String descripcion;
     
     @NotNull
-    private String inicio;
+    private int inicio;
     
-    private String fin;
+    private int fin;
 
     public Experiencia() {
     }
 
-    public Experiencia(int idExperiencia, String nombreEmpresa, String puesto, String descripcion, String inicio, String fin) {
+    public Experiencia(int idExperiencia, String nombreEmpresa, String puesto, String descripcion, int inicio, int fin) {
         this.idExperiencia = idExperiencia;
         this.nombreEmpresa = nombreEmpresa;
         this.puesto = puesto;
@@ -73,22 +73,23 @@ public class Experiencia implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public String getInicio() {
+    public int getInicio() {
         return inicio;
     }
 
-    public void setInicio(String inicio) {
+    public void setInicio(int inicio) {
         this.inicio = inicio;
     }
 
-    public String getFin() {
+    public int getFin() {
         return fin;
     }
 
-    public void setFin(String fin) {
+    public void setFin(int fin) {
         this.fin = fin;
     }
     
+   
     
     
 }

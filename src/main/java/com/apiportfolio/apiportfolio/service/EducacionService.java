@@ -2,30 +2,36 @@ package com.apiportfolio.apiportfolio.service;
 
 import com.apiportfolio.apiportfolio.model.Educacion;
 import com.apiportfolio.apiportfolio.repository.EducacionRepository;
+import jakarta.transaction.Transactional;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EducacionService {
+@Transactional
+public class EducacionService implements IEducacionService{
     
     @Autowired
     private EducacionRepository educacionrepository;
-    
-    public List<Educacion> verEducacion(){
+   
+    @Override
+    public List<Educacion> verEducacion() {
         return educacionrepository.findAll();
     }
-    
-    public void crearEducacion(Educacion educacion){
+
+    @Override
+    public void crearEducacion(Educacion educacion) {
         educacionrepository.save(educacion);
     }
-    
-    public Educacion obtenerEducacion(Integer id){
-        return educacionrepository.findById(id).get();
+
+    @Override
+    public void eliminarEducacion(Integer id) {
+                educacionrepository.deleteById(id);
     }
-    
-    public void eliminarEducacion(Integer id){
-        educacionrepository.deleteById(id);
+
+    @Override
+    public Educacion buscarEducacion(Integer id) {
+        return educacionrepository.findById(id).get();
     }
     
 }
