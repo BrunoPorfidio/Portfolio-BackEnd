@@ -2,9 +2,12 @@ package com.portfolio.apiportfolio.model;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Experiencia implements Serializable {
@@ -17,6 +20,10 @@ public class Experiencia implements Serializable {
     private String descripcion;
     private int inicio;
     private int fin;
+    
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "idExperiencia" )
+//    private Persona id_experiencia;
 
     //Contructores
     public Experiencia() {

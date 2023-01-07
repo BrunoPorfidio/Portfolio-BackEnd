@@ -1,53 +1,60 @@
 package com.portfolio.apiportfolio.model;
 
-
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Skills implements Serializable {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idSkill;
-	private String nombreSkill;
-	private String fotoSkill;
 
-	//Contructores
-	public Skills() {
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idSkill;
+    private String nombreSkill;
+    private String fotoSkill;
 
-	public Skills(Long idSkill, String nombreSkill, String fotoSkill) {
-		this.idSkill = idSkill;
-		this.nombreSkill = nombreSkill;
-		this.fotoSkill = fotoSkill;
-	}
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "idSkills")
+//    private Persona id_skills;
 
-	//Getters and Setters
-	public Long getIdSkill() {
-		return idSkill;
-	}
+    //Contructores
+    public Skills() {
+    }
 
-	public void setIdSkill(Long idSkill) {
-		this.idSkill = idSkill;
-	}
+    public Skills(Long idSkill, String nombreSkill, String fotoSkill) {
+        this.idSkill = idSkill;
+        this.nombreSkill = nombreSkill;
+        this.fotoSkill = fotoSkill;
+    }
 
-	public String getNombreSkill() {
-		return nombreSkill;
-	}
+    //Getters and Setters
+    public Long getIdSkill() {
+        return idSkill;
+    }
 
-	public void setNombreSkill(String nombreSkill) {
-		this.nombreSkill = nombreSkill;
-	}
+    public void setIdSkill(Long idSkill) {
+        this.idSkill = idSkill;
+    }
 
-	public String getFotoSkill() {
-		return fotoSkill;
-	}
+    public String getNombreSkill() {
+        return nombreSkill;
+    }
 
-	public void setFotoSkill(String fotoSkill) {
-		this.fotoSkill = fotoSkill;
-	}
+    public void setNombreSkill(String nombreSkill) {
+        this.nombreSkill = nombreSkill;
+    }
+
+    public String getFotoSkill() {
+        return fotoSkill;
+    }
+
+    public void setFotoSkill(String fotoSkill) {
+        this.fotoSkill = fotoSkill;
+    }
 
 }

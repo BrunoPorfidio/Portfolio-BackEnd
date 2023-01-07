@@ -2,13 +2,9 @@ package com.portfolio.apiportfolio.model;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 
@@ -21,20 +17,23 @@ public class Persona implements Serializable{
 	private String nombre;
 	private String apellido;
 	private String titulo;
+        @Column(length = 255)
 	private String acercaMi;
 	private String urlFoto;
 	private String githubUrl;
         private String likedinUrl;
 	private String imgBanner;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idEdu")
-	private List<Educacion> educacionList;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idExp")
-	private List<Experiencia> experienciaList;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idProy")
-	private List<Proyectos> proyectoList;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idSkill")
-	private List<Skills> SkillsList;
+
+
+//        @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_educacion")
+//         List<Educacion> educacion = new ArrayList<>();
+//        @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_experiencia")
+//         List<Experiencia> experiencias = new ArrayList<>();
+//        @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_proyectos")
+//         List<Proyectos> proyectos = new ArrayList<>();
+//        @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_skills")
+//         List<Skills> skills = new ArrayList<>();
+        
 	
 	 
 	//Constructores 
