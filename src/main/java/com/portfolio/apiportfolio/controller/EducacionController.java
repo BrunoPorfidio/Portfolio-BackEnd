@@ -58,3 +58,4 @@ public class EducacionController {
         return educacion;
     }	
 }
+
