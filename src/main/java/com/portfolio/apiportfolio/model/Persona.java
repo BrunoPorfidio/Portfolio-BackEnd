@@ -19,7 +19,7 @@ public class Persona implements Serializable {
     @Size(min = 1, max = 50, message = "no cumple con la longitud")
     private String apellido;
     @Size(min = 1, max = 50, message = "no cumple con la longitud")
-    private String titulo;
+    private String subTitulo;
     @Size(min = 1, max = 255, message = "no cumple con la longitud")
     private String acercaMi;
     @Size(min = 1, max = 255, message = "no cumple con la longitud")
@@ -43,11 +43,11 @@ public class Persona implements Serializable {
     public Persona() {
     }
 
-    public Persona(Long id, String nombre, String apellido, String titulo, String acercaMi, String urlFoto, String likedinUrl, String githubUrl, String imgBanner) {
+    public Persona(Long id, String nombre, String apellido, String subTitulo, String acercaMi, String urlFoto, String likedinUrl, String githubUrl, String imgBanner) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.titulo = titulo;
+        this.subTitulo = subTitulo;
         this.acercaMi = acercaMi;
         this.urlFoto = urlFoto;
         this.likedinUrl = likedinUrl;
@@ -104,12 +104,12 @@ public class Persona implements Serializable {
         this.imgBanner = imgBanner;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getSubTitulo() {
+        return subTitulo;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setSubTitulo(String subTitulo) {
+        this.subTitulo = subTitulo;
     }
 
     public String getAcercaMi() {
