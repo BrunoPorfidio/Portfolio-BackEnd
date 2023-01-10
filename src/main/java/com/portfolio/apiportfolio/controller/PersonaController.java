@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 @RequestMapping("/persona")
+@CrossOrigin(origins = {"http://localhost:4200", "https://miportfolioweb-e312a.web.app"})
 public class PersonaController {
 
     @Autowired
