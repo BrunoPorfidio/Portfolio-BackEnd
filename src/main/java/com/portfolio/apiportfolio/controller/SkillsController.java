@@ -47,8 +47,7 @@ public class SkillsController {
 	@PutMapping("/editar/{id}")
     public Skills editarSkills(@PathVariable Long id,
                                 @RequestParam("nombreSkill") String nuevoNombreSkill,
-				@RequestParam("fotoSkill") String nuevaFoto,
-				@RequestParam("") int nuevo){
+				@RequestParam("fotoSkill") String nuevaFoto){
         Skills skills = skillsService.buscarSkills(id);
         
         skills.setNombreSkill(nuevoNombreSkill);

@@ -47,8 +47,8 @@ public class EducacionController {
 	public Educacion editarEducacion(@PathVariable Long id,
                                 @RequestParam("institucion") String nuevaInstitucion,
 				@RequestParam("titulo") String nuevoTitulo,
-				@RequestParam("Inicio") int nuevoInicio,
-				@RequestParam("Fin") int nuevoFin){
+				@RequestParam("inicio") int nuevoInicio,
+				@RequestParam("fin") int nuevoFin){
         Educacion educacion = educacionService.buscarEducacion(id);
         
         educacion.setInstitucion(nuevaInstitucion);

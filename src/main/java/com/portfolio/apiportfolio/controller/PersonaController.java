@@ -38,8 +38,7 @@ public class PersonaController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/nuevo")
-    public void agregarPersona(@RequestBody Persona persona
-    ) {
+    public void agregarPersona(@RequestBody Persona persona){
         personaService.crearPersona(persona);
     }
 
