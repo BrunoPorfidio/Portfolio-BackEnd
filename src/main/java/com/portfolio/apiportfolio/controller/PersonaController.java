@@ -55,7 +55,7 @@ public class PersonaController {
     public Persona editarPersona(@PathVariable Long id,
             @RequestParam("nombre") String nuevoNombre,
             @RequestParam("apellido") String nuevoApellido,
-            @RequestParam("titulo") String nuevoSubTitulo,
+            @RequestParam("SubTitulo") String nuevoSubTitulo,
             @RequestParam("acercaMi") String nuevoAcercaMi,
             @RequestParam("urlFoto") String nuevoUrlFoto,
             @RequestParam("likedinUrl") String nuevaLikedinUrl,
