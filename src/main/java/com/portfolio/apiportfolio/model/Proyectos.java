@@ -3,12 +3,9 @@ package com.portfolio.apiportfolio.model;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Proyectos implements Serializable {
@@ -17,7 +14,7 @@ public class Proyectos implements Serializable {
 	private Long idProyectos;
 	private String nombreProyecto;
 	private String descripcion;
-	private String url;
+	private String urlProyecto;
 	private String fotoProyecto;
         
 //    @ManyToOne(fetch = FetchType.LAZY)
@@ -29,11 +26,11 @@ public class Proyectos implements Serializable {
 	public Proyectos() {
 	}
 
-    public Proyectos(Long idProyectos, String nombreProyecto, String descripcion, String url, String fotoProyecto) {
+    public Proyectos(Long idProyectos, String nombreProyecto, String descripcion, String urlProyecto, String fotoProyecto) {
         this.idProyectos = idProyectos;
         this.nombreProyecto = nombreProyecto;
         this.descripcion = descripcion;
-        this.url = url;
+        this.urlProyecto = urlProyecto;
         this.fotoProyecto = fotoProyecto;
     }
 
@@ -61,12 +58,12 @@ public class Proyectos implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public String getUrl() {
-        return url;
+    public String getUrlProyecto() {
+        return urlProyecto;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setUrlProyecto(String urlProyecto) {
+        this.urlProyecto = urlProyecto;
     }
 
     public String getFotoProyecto() {
@@ -76,6 +73,7 @@ public class Proyectos implements Serializable {
     public void setFotoProyecto(String fotoProyecto) {
         this.fotoProyecto = fotoProyecto;
     }
+
 
 	
 }

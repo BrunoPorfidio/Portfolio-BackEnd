@@ -1,8 +1,6 @@
 package com.portfolio.apiportfolio.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -27,7 +25,7 @@ public class Persona implements Serializable {
     @Size(min = 1, max = 255, message = "no cumple con la longitud")
     private String githubUrl;
     @Size(min = 1, max = 255, message = "no cumple con la longitud")
-    private String likedinUrl;
+    private String linkedinUrl;
     @Size(min = 1, max = 255, message = "no cumple con la longitud")
     private String imgBanner;
 
@@ -43,14 +41,14 @@ public class Persona implements Serializable {
     public Persona() {
     }
 
-    public Persona(Long id, String nombre, String apellido, String subTitulo, String acercaMi, String urlFoto, String likedinUrl, String githubUrl, String imgBanner) {
+    public Persona(Long id, String nombre, String apellido, String subTitulo, String acercaMi, String urlFoto, String linkedinUrl, String githubUrl, String imgBanner) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.subTitulo = subTitulo;
         this.acercaMi = acercaMi;
         this.urlFoto = urlFoto;
-        this.likedinUrl = likedinUrl;
+        this.linkedinUrl = linkedinUrl;
         this.githubUrl = githubUrl;
         this.imgBanner = imgBanner;
     }
@@ -80,12 +78,12 @@ public class Persona implements Serializable {
         this.apellido = apellido;
     }
 
-    public String getLikedinUrl() {
-        return likedinUrl;
+    public String getLinkedinUrl() {
+        return linkedinUrl;
     }
 
-    public void setLikedinUrl(String likedinUrl) {
-        this.likedinUrl = likedinUrl;
+    public void setLinkedinUrl(String linkedinUrl) {
+        this.linkedinUrl = linkedinUrl;
     }
 
     public String getGithubUrl() {

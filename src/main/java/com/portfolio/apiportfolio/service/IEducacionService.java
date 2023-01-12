@@ -12,5 +12,7 @@ public interface IEducacionService {
 	public void eliminarEducacion (Long id);
 	
 	public Educacion buscarEducacion (Long id);
+        
+        public void getById(Long id);
 	
 }

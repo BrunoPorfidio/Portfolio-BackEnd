@@ -12,5 +12,7 @@ public interface IProyectoService {
 	
 	public void eliminarProyecto (Long id);
 	
-	public Proyectos buscarProyecto (Long id);	
+	public Proyectos buscarProyecto (Long id);
+        
+        public void getById(Long id);
 }

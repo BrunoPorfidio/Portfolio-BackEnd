@@ -12,5 +12,7 @@ public interface ISkillsService {
 	public void eliminarSkills (Long id);
 	
 	public Skills buscarSkills (Long id);	
+        
+        public void getById(Long id);
 	
 }

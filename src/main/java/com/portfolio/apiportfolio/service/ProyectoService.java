@@ -10,27 +10,32 @@ import org.springframework.stereotype.Service;
 @Service
 @Transactional
 public class ProyectoService implements IProyectoService {
-	
-	@Autowired
-	public ProyectoRepo proyectoRepo;
 
-	@Override
-	public List<Proyectos> verProyecto() {
-		return proyectoRepo.findAll();	
-	}
+    @Autowired
+    public ProyectoRepo proyectoRepo;
 
-	@Override
-	public void crearProyecto(Proyectos proyecto) {
-		proyectoRepo.save(proyecto);
-	}
+    @Override
+    public List<Proyectos> verProyecto() {
+        return proyectoRepo.findAll();
+    }
 
-	@Override
-	public void eliminarProyecto(Long id) {
-		proyectoRepo.deleteById(id);	
-	}
+    @Override
+    public void crearProyecto(Proyectos proyecto) {
+        proyectoRepo.save(proyecto);
+    }
 
-	@Override
-	public Proyectos buscarProyecto(Long id) {
-		return proyectoRepo.findById(id).orElse(null);
-	}
+    @Override
+    public void eliminarProyecto(Long id) {
+        proyectoRepo.deleteById(id);
+    }
+
+    @Override
+    public Proyectos buscarProyecto(Long id) {
+        return proyectoRepo.findById(id).orElse(null);
+    }
+
+    @Override
+    public void getById(Long id) {
+        proyectoRepo.findById(id).get();
+    }
 }

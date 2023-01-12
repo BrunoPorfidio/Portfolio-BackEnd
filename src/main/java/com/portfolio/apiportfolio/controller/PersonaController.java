@@ -1,9 +1,13 @@
 package com.portfolio.apiportfolio.controller;
 
 import com.portfolio.apiportfolio.model.Persona;
+import com.portfolio.apiportfolio.repository.PersonaRepo;
 import com.portfolio.apiportfolio.service.IPersonaService;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -24,6 +27,9 @@ public class PersonaController {
 
     @Autowired
     private IPersonaService personaService;
+
+    @Autowired
+    public PersonaRepo personaRepo;
 
     @GetMapping("/ver")
     @ResponseBody
@@ -38,7 +44,7 @@ public class PersonaController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/nuevo")
-    public void agregarPersona(@RequestBody Persona persona){
+    public void agregarPersona(@RequestBody Persona persona) {
         personaService.crearPersona(persona);
     }
 
@@ -51,29 +57,23 @@ public class PersonaController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/editar/{id}")
-    public Persona editarPersona(@PathVariable Long id,
-            @RequestParam("nombre") String nuevoNombre,
-            @RequestParam("apellido") String nuevoApellido,
-            @RequestParam("SubTitulo") String nuevoSubTitulo,
-            @RequestParam("acercaMi") String nuevoAcercaMi,
-            @RequestParam("urlFoto") String nuevoUrlFoto,
-            @RequestParam("likedinUrl") String nuevaLikedinUrl,
-            @RequestParam("githubUrl") String nuevaGithubUrl,
-            @RequestParam("imgBanner") String nuevaImgBanner
-    ) {
-        Persona persona = personaService.buscarPersona(id);
+    public ResponseEntity<Persona> editarPersona(@PathVariable("id") Long id, @RequestBody Persona persona) {
+        Optional<Persona> PersonaData = personaRepo.findById(id);
 
-        persona.setNombre(nuevoNombre);
-        persona.setApellido(nuevoApellido);
-        persona.setSubTitulo(nuevoSubTitulo);
-        persona.setAcercaMi(nuevoAcercaMi);
-        persona.setUrlFoto(nuevoUrlFoto);
-        persona.setLikedinUrl(nuevaLikedinUrl);
-        persona.setGithubUrl(nuevaGithubUrl);
-        persona.setImgBanner(nuevaImgBanner);
+        if (PersonaData.isPresent()) {
+            Persona _persona = PersonaData.get();
+            _persona.setNombre(persona.getNombre());
+            _persona.setApellido(persona.getApellido());
+            _persona.setSubTitulo(persona.getSubTitulo());
+            _persona.setAcercaMi(persona.getAcercaMi());
+            _persona.setUrlFoto(persona.getUrlFoto());
+            _persona.setLinkedinUrl(persona.getLinkedinUrl());
+            _persona.setGithubUrl(persona.getGithubUrl());
+            _persona.setImgBanner(persona.getImgBanner());
 
-        personaService.crearPersona(persona);
-        return persona;
+            return new ResponseEntity<>(personaRepo.save(_persona), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }
-
