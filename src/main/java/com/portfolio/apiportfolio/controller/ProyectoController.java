@@ -1,10 +1,12 @@
 package com.portfolio.apiportfolio.controller;
 
+import com.portfolio.apiportfolio.model.Persona;
 import com.portfolio.apiportfolio.model.Proyectos;
 import com.portfolio.apiportfolio.repository.ProyectoRepo;
 import com.portfolio.apiportfolio.service.IProyectoService;
 import java.util.List;
 import java.util.Optional;
+import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,6 +40,15 @@ public class ProyectoController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/buscar/{id}")
+    public ResponseEntity<Proyectos> obtenerProyectoPorId(@PathVariable Long id) {
+        Proyectos proyectos = proyectoRepo.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("No se encontreo Proyecto con el ID" + id));
+
+        return ResponseEntity.ok(proyectos);
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/nuevo")
     public void agregarProyecto(@RequestBody Proyectos proyecto) {
         proyectoService.crearProyecto(proyecto);
@@ -51,19 +62,16 @@ public class ProyectoController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/editar/{id}")
-    public ResponseEntity<Proyectos> editarProyectos(@PathVariable("id") Long id, @RequestBody Proyectos proyectos) {
-        Optional<Proyectos> ProyectosData = proyectoRepo.findById(id);
+    public ResponseEntity<Proyectos> editarProyecto(@PathVariable Long id, @RequestBody Proyectos proyecto) {
+        Proyectos proyectos = proyectoRepo.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("No se encontro Proyecto con el ID" + id));
 
-        if (ProyectosData.isPresent()) {
-            Proyectos _proyectos = ProyectosData.get();
-            _proyectos.setNombreProyecto(proyectos.getNombreProyecto());
-            _proyectos.setDescripcion(proyectos.getDescripcion());
-            _proyectos.setUrlProyecto(proyectos.getUrlProyecto());
-            _proyectos.setFotoProyecto(proyectos.getFotoProyecto());
+        proyectos.setNombreProyecto(proyectos.getNombreProyecto());
+        proyectos.setDescripcion(proyectos.getDescripcion());
+        proyectos.setUrlProyecto(proyectos.getUrlProyecto());
+        proyectos.setFotoProyecto(proyectos.getFotoProyecto());
 
-            return new ResponseEntity<>(proyectoRepo.save(_proyectos), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        Proyectos guardarProyecto = proyectoRepo.save(proyecto);
+        return ResponseEntity.ok(guardarProyecto);
     }
 }

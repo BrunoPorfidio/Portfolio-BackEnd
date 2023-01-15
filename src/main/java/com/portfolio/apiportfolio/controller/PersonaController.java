@@ -5,6 +5,7 @@ import com.portfolio.apiportfolio.repository.PersonaRepo;
 import com.portfolio.apiportfolio.service.IPersonaService;
 import java.util.List;
 import java.util.Optional;
+import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,9 +38,13 @@ public class PersonaController {
         return personaService.verPersonas();
     }
 
-    @GetMapping("ver/perfil/{id}")
-    public Persona mostrarPersona(Long id) {
-        return personaService.buscarPersona(id);
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/buscar/{id}")
+    public ResponseEntity<Persona> obtenerPersonaPorId(@PathVariable Long id) {
+        Persona persona = personaRepo.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("No se encontreo la Persona con el ID" + id));
+
+        return ResponseEntity.ok(persona);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
@@ -57,23 +62,19 @@ public class PersonaController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/editar/{id}")
-    public ResponseEntity<Persona> editarPersona(@PathVariable("id") Long id, @RequestBody Persona persona) {
-        Optional<Persona> PersonaData = personaRepo.findById(id);
-
-        if (PersonaData.isPresent()) {
-            Persona _persona = PersonaData.get();
-            _persona.setNombre(persona.getNombre());
-            _persona.setApellido(persona.getApellido());
-            _persona.setSubTitulo(persona.getSubTitulo());
-            _persona.setAcercaMi(persona.getAcercaMi());
-            _persona.setUrlFoto(persona.getUrlFoto());
-            _persona.setLinkedinUrl(persona.getLinkedinUrl());
-            _persona.setGithubUrl(persona.getGithubUrl());
-            _persona.setImgBanner(persona.getImgBanner());
-
-            return new ResponseEntity<>(personaRepo.save(_persona), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        public ResponseEntity<Persona> editarPersona(@PathVariable Long id, @RequestBody Persona epersona){
+           Persona persona = personaRepo.findById(id)
+                   .orElseThrow(() -> new ResourceNotFoundException("No se encontreo la Persona con el ID" + id));
+           persona.setNombre(epersona.getNombre());
+           persona.setApellido(epersona.getApellido());
+           persona.setSubTitulo(epersona.getSubTitulo());
+           persona.setAcercaMi(epersona.getAcercaMi());
+           persona.setUrlFoto(epersona.getUrlFoto());
+           persona.setLinkedinUrl(epersona.getLinkedinUrl());
+           persona.setGithubUrl(epersona.getGithubUrl());
+           persona.setImgBanner(epersona.getImgBanner());
+           
+           Persona guardarPersona = personaRepo.save(epersona);
+           return ResponseEntity.ok(guardarPersona);
     }
 }
