@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 public class Experiencia implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idExperiencia;
     private String nombreEmpresa;
     private String puesto;

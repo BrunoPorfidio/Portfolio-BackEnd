@@ -9,24 +9,24 @@ import javax.validation.constraints.Size;
 public class Persona implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotNull
-    @Size(min = 1, max = 50, message = "no cumple con la longitud")
+//    @Size(min = 1, max = 50, message = "no cumple con la longitud")
     private String nombre;
-    @Size(min = 1, max = 50, message = "no cumple con la longitud")
+//    @Size(min = 1, max = 50, message = "no cumple con la longitud")
     private String apellido;
-    @Size(min = 1, max = 50, message = "no cumple con la longitud")
+//    @Size(min = 1, max = 50, message = "no cumple con la longitud")
     private String subTitulo;
-    @Size(min = 1, max = 255, message = "no cumple con la longitud")
+//    @Size(min = 1, max = 255, message = "no cumple con la longitud")
     private String acercaMi;
-    @Size(min = 1, max = 255, message = "no cumple con la longitud")
+//    @Size(min = 1, max = 255, message = "no cumple con la longitud")
     private String urlFoto;
-    @Size(min = 1, max = 255, message = "no cumple con la longitud")
+//    @Size(min = 1, max = 255, message = "no cumple con la longitud")
     private String githubUrl;
-    @Size(min = 1, max = 255, message = "no cumple con la longitud")
+//    @Size(min = 1, max = 255, message = "no cumple con la longitud")
     private String linkedinUrl;
-    @Size(min = 1, max = 255, message = "no cumple con la longitud")
+//    @Size(min = 1, max = 255, message = "no cumple con la longitud")
     private String imgBanner;
 
 //        @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_educacion")

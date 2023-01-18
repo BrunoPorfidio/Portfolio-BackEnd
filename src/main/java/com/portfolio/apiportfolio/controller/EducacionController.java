@@ -4,10 +4,8 @@ import com.portfolio.apiportfolio.model.Educacion;
 import com.portfolio.apiportfolio.repository.EducacionRepo;
 import com.portfolio.apiportfolio.service.IEducacionService;
 import java.util.List;
-import java.util.Optional;
 import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -68,6 +66,7 @@ public class EducacionController {
         educacion.setTitulo(eeducacion.getTitulo());
         educacion.setInicio(eeducacion.getInicio());
         educacion.setFin(eeducacion.getFin());
+        educacion.setFotoEducacion(eeducacion.getFotoEducacion());
 
         Educacion guardarEducacion = educacionRepo.save(eeducacion);
         return ResponseEntity.ok(guardarEducacion);
