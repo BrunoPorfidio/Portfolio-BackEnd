@@ -15,10 +15,6 @@ public class Skills implements Serializable {
     private String nombreSkill;
     private String fotoSkill;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "idSkills")
-//    private Persona id_skills;
-
     //Contructores
     public Skills() {
     }

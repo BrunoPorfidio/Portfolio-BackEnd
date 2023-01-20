@@ -3,7 +3,6 @@ package com.portfolio.apiportfolio.model;
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 public class Persona implements Serializable {
@@ -12,48 +11,37 @@ public class Persona implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotNull
-//    @Size(min = 1, max = 50, message = "no cumple con la longitud")
     private String nombre;
-//    @Size(min = 1, max = 50, message = "no cumple con la longitud")
     private String apellido;
-//    @Size(min = 1, max = 50, message = "no cumple con la longitud")
     private String subTitulo;
-//    @Size(min = 1, max = 255, message = "no cumple con la longitud")
     private String acercaMi;
-//    @Size(min = 1, max = 255, message = "no cumple con la longitud")
     private String urlFoto;
-//    @Size(min = 1, max = 255, message = "no cumple con la longitud")
     private String githubUrl;
-//    @Size(min = 1, max = 255, message = "no cumple con la longitud")
     private String linkedinUrl;
-//    @Size(min = 1, max = 255, message = "no cumple con la longitud")
     private String imgBanner;
+    private int telefono;
+    private String email;
+    private String ubicacion;
 
-//        @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_educacion")
-//         List<Educacion> educacion = new ArrayList<>();
-//        @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_experiencia")
-//         List<Experiencia> experiencias = new ArrayList<>();
-//        @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_proyectos")
-//         List<Proyectos> proyectos = new ArrayList<>();
-//        @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_skills")
-//         List<Skills> skills = new ArrayList<>();
     //Constructores 
     public Persona() {
     }
 
-    public Persona(Long id, String nombre, String apellido, String subTitulo, String acercaMi, String urlFoto, String linkedinUrl, String githubUrl, String imgBanner) {
+    public Persona(Long id, String nombre, String apellido, String subTitulo, String acercaMi, String urlFoto, String githubUrl, String linkedinUrl, String imgBanner, int telefono, String email, String ubicacion) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.subTitulo = subTitulo;
         this.acercaMi = acercaMi;
         this.urlFoto = urlFoto;
-        this.linkedinUrl = linkedinUrl;
         this.githubUrl = githubUrl;
+        this.linkedinUrl = linkedinUrl;
         this.imgBanner = imgBanner;
+        this.telefono = telefono;
+        this.email = email;
+        this.ubicacion = ubicacion;
     }
 
-    //Getters and Setters
     public Long getId() {
         return id;
     }
@@ -76,30 +64,6 @@ public class Persona implements Serializable {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public String getLinkedinUrl() {
-        return linkedinUrl;
-    }
-
-    public void setLinkedinUrl(String linkedinUrl) {
-        this.linkedinUrl = linkedinUrl;
-    }
-
-    public String getGithubUrl() {
-        return githubUrl;
-    }
-
-    public void setGithubUrl(String githubUrl) {
-        this.githubUrl = githubUrl;
-    }
-
-    public String getImgBanner() {
-        return imgBanner;
-    }
-
-    public void setImgBanner(String imgBanner) {
-        this.imgBanner = imgBanner;
     }
 
     public String getSubTitulo() {
@@ -125,5 +89,54 @@ public class Persona implements Serializable {
     public void setUrlFoto(String urlFoto) {
         this.urlFoto = urlFoto;
     }
+
+    public String getGithubUrl() {
+        return githubUrl;
+    }
+
+    public void setGithubUrl(String githubUrl) {
+        this.githubUrl = githubUrl;
+    }
+
+    public String getLinkedinUrl() {
+        return linkedinUrl;
+    }
+
+    public void setLinkedinUrl(String linkedinUrl) {
+        this.linkedinUrl = linkedinUrl;
+    }
+
+    public String getImgBanner() {
+        return imgBanner;
+    }
+
+    public void setImgBanner(String imgBanner) {
+        this.imgBanner = imgBanner;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
 
 }

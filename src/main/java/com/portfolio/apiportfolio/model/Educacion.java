@@ -18,9 +18,6 @@ public class Educacion implements Serializable {
     private int fin;
     private String fotoEducacion;
 
-//        @ManyToOne(fetch = FetchType.LAZY)
-//        @JoinColumn(name = "idEducacion" )
-//        private Persona id_educacion;
     //Contructores 
     public Educacion() {
     }

@@ -71,6 +71,9 @@ public class PersonaController {
            persona.setLinkedinUrl(epersona.getLinkedinUrl());
            persona.setGithubUrl(epersona.getGithubUrl());
            persona.setImgBanner(epersona.getImgBanner());
+           persona.setTelefono(epersona.getTelefono());
+           persona.setEmail(epersona.getEmail());
+           persona.setUbicacion(epersona.getUbicacion());
            
            Persona guardarPersona = personaRepo.save(epersona);
            return ResponseEntity.ok(guardarPersona);

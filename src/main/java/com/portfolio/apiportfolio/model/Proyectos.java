@@ -17,10 +17,6 @@ public class Proyectos implements Serializable {
 	private String urlProyecto;
 	private String fotoProyecto;
         
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "idProyectos" )
-//    private Persona id_proyectos;
-
 
 	//Contructores
 	public Proyectos() {
