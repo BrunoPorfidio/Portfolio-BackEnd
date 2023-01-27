@@ -35,7 +35,7 @@ public class PersonaService implements IPersonaService {
     }
 
     @Override
-    public void getById(Long id) {
+    public void buscarPorId(Long id) {
         personaRepo.findById(id).get();
     }
 

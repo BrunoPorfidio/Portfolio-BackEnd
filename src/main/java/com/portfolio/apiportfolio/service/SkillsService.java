@@ -35,7 +35,8 @@ public class SkillsService implements ISkillsService {
     }
 
     @Override
-    public void getById(Long id) {
+    public void buscarPorId(Long id) {
         skillsRepo.findById(id).get();
     }
+
 }

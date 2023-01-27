@@ -1,7 +1,10 @@
 package com.portfolio.apiportfolio.controller;
 
 import com.portfolio.apiportfolio.model.Educacion;
+import com.portfolio.apiportfolio.model.Persona;
+import com.portfolio.apiportfolio.model.Skills;
 import com.portfolio.apiportfolio.repository.EducacionRepo;
+import com.portfolio.apiportfolio.repository.PersonaRepo;
 import com.portfolio.apiportfolio.service.IEducacionService;
 import java.util.List;
 import org.apache.velocity.exception.ResourceNotFoundException;
@@ -28,6 +31,9 @@ public class EducacionController {
     private IEducacionService educacionService;
 
     @Autowired
+    private PersonaRepo personaRepo;
+    
+    @Autowired
     private EducacionRepo educacionRepo;
 
     @GetMapping("/ver")
@@ -46,8 +52,11 @@ public class EducacionController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/nuevo")
-    public void agregarEducacion(@RequestBody Educacion educacion) {
+    @PostMapping("/nuevo/{id}")
+    public void agregarEducacion(@RequestBody Educacion educacion, @PathVariable Long id ) {
+        
+        Persona pers = personaRepo.getById(id);
+        pers.getEducacion().add(educacion);
         educacionService.crearEducacion(educacion);
     }
 
@@ -58,18 +67,9 @@ public class EducacionController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/editar/{id}")
-    public ResponseEntity<Educacion> editarSkill(@PathVariable Long id, @RequestBody Educacion eeducacion) {
-        Educacion educacion = educacionRepo.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("No se encontreo la Persona con el ID" + id));
-        educacion.setInstitucion(eeducacion.getInstitucion());
-        educacion.setTitulo(eeducacion.getTitulo());
-        educacion.setInicio(eeducacion.getInicio());
-        educacion.setFin(eeducacion.getFin());
-        educacion.setFotoEducacion(eeducacion.getFotoEducacion());
-
-        Educacion guardarEducacion = educacionRepo.save(eeducacion);
-        return ResponseEntity.ok(guardarEducacion);
+    @PutMapping("/editar")
+    public Educacion editarEducacion(@RequestBody Educacion educacion){
+        educacionService.crearEducacion(educacion);
+        return educacion;
     }
-
 }

@@ -1,6 +1,8 @@
 package com.portfolio.apiportfolio.controller;
 
+import com.portfolio.apiportfolio.model.Persona;
 import com.portfolio.apiportfolio.model.Skills;
+import com.portfolio.apiportfolio.repository.PersonaRepo;
 import com.portfolio.apiportfolio.repository.SkillsRepo;
 import com.portfolio.apiportfolio.service.ISkillsService;
 import java.util.List;
@@ -29,28 +31,34 @@ public class SkillsController {
 
     @Autowired
     private SkillsRepo skillsRepo;
+    
+    @Autowired
+    private PersonaRepo personaRepo; 
 
     @GetMapping("/ver")
     @ResponseBody
     public List<Skills> verSkills() {
         return skillsService.verSkills();
     }
-    
+
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/buscar/{id}")
-    public ResponseEntity<Skills> obtenerSkillPorId(@PathVariable Long id){
-           Skills skills = skillsRepo.findById(id)
-                   .orElseThrow(() -> new ResourceNotFoundException("No se encontreo Skill con el ID" + id));
-                   
-           return ResponseEntity.ok(skills);
+    public ResponseEntity<Skills> obtenerSkillPorId(@PathVariable Long id) {
+        Skills skills = skillsRepo.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("No se encontreo Skill con el ID" + id));
+
+        return ResponseEntity.ok(skills);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/nuevo")
-    public void agregarSkills(@RequestBody Skills skills) {
+    @PostMapping("/nuevo/{id}")
+    public void agregarSkills(@RequestBody Skills skills, @PathVariable Long id ) {
+        
+        Persona pers = personaRepo.getById(id);
+        pers.getSkills().add(skills);
         skillsService.crearSkills(skills);
     }
-
+    
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/borrar/{id}")
     public void eliminarSkills(@PathVariable Long id) {
@@ -59,22 +67,9 @@ public class SkillsController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/editar")
-    public String editarSkills(@RequestBody Skills skills){
-
+    public Skills editarSkills(@RequestBody Skills skills){
         skillsService.crearSkills(skills);
-
-        return "Skill editada";
+        return skills;
     }
-        
-        
-//                public ResponseEntity<Skills> editarSkill(@PathVariable Long id, @RequestBody Skills skill){
-//           Skills skills = skillsRepo.findById(id)
-//                 .orElseThrow(() -> new ResourceNotFoundException("No se encontro Skill con el ID" + id));
-//           skills.setNombreSkill(skill.getNombreSkill());
-//           skills.setFotoSkill(skill.getFotoSkill());
-//           
-//           Skills guardarSkills = skillsRepo.save(skill);
-//           return ResponseEntity.ok(guardarSkills);
-//    }
 
 }

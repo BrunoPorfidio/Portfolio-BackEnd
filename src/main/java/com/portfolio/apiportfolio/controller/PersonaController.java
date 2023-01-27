@@ -36,13 +36,9 @@ public class PersonaController {
         return personaService.verPersonas();
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping("/buscar/{id}")
-    public ResponseEntity<Persona> obtenerPersonaPorId(@PathVariable Long id) {
-        Persona persona = personaRepo.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("No se encontreo la Persona con el ID" + id));
-
-        return ResponseEntity.ok(persona);
+    @GetMapping("/ver_uno/{id}")
+    public Persona buscarPersona(@PathVariable Long id) {
+        return personaService.buscarPersona(id);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
@@ -53,29 +49,15 @@ public class PersonaController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/borrar/{id}")
-    public void eliminarPersona(@PathVariable Long id
-    ) {
+    public void eliminarPersona(@PathVariable Long id) {
         personaService.eliminarPersona(id);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/editar/{id}")
-        public ResponseEntity<Persona> editarPersona(@PathVariable Long id, @RequestBody Persona epersona){
-           Persona persona = personaRepo.findById(id)
-                   .orElseThrow(() -> new ResourceNotFoundException("No se encontreo la Persona con el ID" + id));
-           persona.setNombre(epersona.getNombre());
-           persona.setApellido(epersona.getApellido());
-           persona.setSubTitulo(epersona.getSubTitulo());
-           persona.setAcercaMi(epersona.getAcercaMi());
-           persona.setUrlFoto(epersona.getUrlFoto());
-           persona.setLinkedinUrl(epersona.getLinkedinUrl());
-           persona.setGithubUrl(epersona.getGithubUrl());
-           persona.setImgBanner(epersona.getImgBanner());
-           persona.setTelefono(epersona.getTelefono());
-           persona.setEmail(epersona.getEmail());
-           persona.setUbicacion(epersona.getUbicacion());
-           
-           Persona guardarPersona = personaRepo.save(epersona);
-           return ResponseEntity.ok(guardarPersona);
+    @PutMapping("/editar")
+    public Persona editarPersona(@RequestBody Persona persona) {
+        personaService.crearPersona(persona);
+
+        return persona;
     }
 }

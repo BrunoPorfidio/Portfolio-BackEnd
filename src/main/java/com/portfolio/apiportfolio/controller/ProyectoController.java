@@ -1,6 +1,9 @@
 package com.portfolio.apiportfolio.controller;
 
+import com.portfolio.apiportfolio.model.Persona;
 import com.portfolio.apiportfolio.model.Proyectos;
+import com.portfolio.apiportfolio.model.Skills;
+import com.portfolio.apiportfolio.repository.PersonaRepo;
 import com.portfolio.apiportfolio.repository.ProyectoRepo;
 import com.portfolio.apiportfolio.service.IProyectoService;
 import java.util.List;
@@ -29,7 +32,10 @@ public class ProyectoController {
 
     @Autowired
     private ProyectoRepo proyectoRepo;
-
+    
+    @Autowired
+    private PersonaRepo personaRepo;
+    
     @GetMapping("/ver")
     @ResponseBody
     public List<Proyectos> verProyecto() {
@@ -46,9 +52,12 @@ public class ProyectoController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/nuevo")
-    public void agregarProyecto(@RequestBody Proyectos proyecto) {
-        proyectoService.crearProyecto(proyecto);
+    @PostMapping("/nuevo/{id}")
+    public void agregarProyecto(@RequestBody Proyectos proyectos, @PathVariable Long id ) {
+        
+        Persona pers = personaRepo.getById(id);
+        pers.getProyectos().add(proyectos);
+        proyectoService.crearProyecto(proyectos);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
@@ -58,17 +67,9 @@ public class ProyectoController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/editar/{id}")
-    public ResponseEntity<Proyectos> editarProyecto(@PathVariable Long id, @RequestBody Proyectos proyecto) {
-        Proyectos proyectos = proyectoRepo.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("No se encontro Proyecto con el ID" + id));
-
-        proyectos.setNombreProyecto(proyectos.getNombreProyecto());
-        proyectos.setDescripcion(proyectos.getDescripcion());
-        proyectos.setUrlProyecto(proyectos.getUrlProyecto());
-        proyectos.setFotoProyecto(proyectos.getFotoProyecto());
-
-        Proyectos guardarProyecto = proyectoRepo.save(proyecto);
-        return ResponseEntity.ok(guardarProyecto);
+    @PutMapping("/editar")
+    public Proyectos editarProyecto(@RequestBody Proyectos proyectos){
+        proyectoService.crearProyecto(proyectos);
+        return proyectos;
     }
 }

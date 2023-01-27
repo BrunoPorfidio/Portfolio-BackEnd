@@ -1,7 +1,9 @@
 package com.portfolio.apiportfolio.controller;
 
 import com.portfolio.apiportfolio.model.Experiencia;
+import com.portfolio.apiportfolio.model.Persona;
 import com.portfolio.apiportfolio.repository.ExperienciaRepo;
+import com.portfolio.apiportfolio.repository.PersonaRepo;
 import com.portfolio.apiportfolio.service.IExperienciaService;
 import java.util.List;
 import org.apache.velocity.exception.ResourceNotFoundException;
@@ -29,6 +31,9 @@ public class ExperienciaController {
 
     @Autowired
     private ExperienciaRepo experienciaRepo;
+    
+    @Autowired
+    private PersonaRepo personaRepo;
 
     @GetMapping("/ver")
     @ResponseBody
@@ -46,8 +51,11 @@ public class ExperienciaController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/nuevo")
-    public void agregarExperiencia(@RequestBody Experiencia experiencia) {
+    @PostMapping("/nuevo/{id}")
+    public void agregarExperiencia(@RequestBody Experiencia experiencia, @PathVariable Long id ) {
+        
+        Persona pers = personaRepo.getById(id);
+        pers.getExperiencia().add(experiencia);
         experienciaService.crearExperiencia(experiencia);
     }
 
@@ -58,17 +66,9 @@ public class ExperienciaController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/editar/{id}")
-    public ResponseEntity<Experiencia> editarExperiencia(@PathVariable Long id, @RequestBody Experiencia eexperiencia) {
-        Experiencia experiencia = experienciaRepo.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("No se encontro Experiencia con el ID" + id));
-        
-        experiencia.setNombreEmpresa(experiencia.getNombreEmpresa());
-        experiencia.setInicio(experiencia.getInicio());
-        experiencia.setFin(eexperiencia.getFin());
-        experiencia.setDescripcion(experiencia.getDescripcion());
-
-        Experiencia guardarExperiencia = experienciaRepo.save(eexperiencia);
-        return ResponseEntity.ok(guardarExperiencia);
+    @PutMapping("/editar")
+    public Experiencia editarExperiencia(@RequestBody Experiencia experiencia){
+        experienciaService.crearExperiencia(experiencia);
+        return experiencia;
     }
 }

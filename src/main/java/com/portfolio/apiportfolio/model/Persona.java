@@ -1,6 +1,7 @@
 package com.portfolio.apiportfolio.model;
 
 import java.io.Serializable;
+import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -23,6 +24,26 @@ public class Persona implements Serializable {
     private String email;
     private String ubicacion;
 
+    
+    
+      // Relaciones
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn( name = "ip", referencedColumnName = "id")
+    List<Skills> skills = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "id")
+    List<Experiencia> experiencia = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "id")
+    List<Educacion> educacion = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "id")
+    List<Proyectos> proyectos = new ArrayList<>();
+    
+    
     //Constructores 
     public Persona() {
     }
@@ -138,5 +159,38 @@ public class Persona implements Serializable {
         this.ubicacion = ubicacion;
     }
 
+     // Getter and Setter de las relaciones
 
+    public List<Skills> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skills> skills) {
+        this.skills = skills;
+    }
+
+    public List<Experiencia> getExperiencia() {
+        return experiencia;
+    }
+
+    public void setExperiencias(List<Experiencia> experiencia) {
+        this.experiencia = experiencia;
+    }
+
+    public List<Educacion> getEducacion() {
+        return educacion;
+    }
+
+    public void setEducacion(List<Educacion> educacion) {
+        this.educacion = educacion;
+    }
+
+    public List<Proyectos> getProyectos() {
+        return proyectos;
+    }
+
+    public void setProyectos(List<Proyectos> proyectos) {
+        this.proyectos = proyectos;
+    }
+    
 }

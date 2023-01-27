@@ -13,6 +13,6 @@ public interface ISkillsService {
 	
 	public Skills buscarSkills (Long id);	
         
-        public void getById(Long id);
+        public void buscarPorId(Long id);
 	
 }
