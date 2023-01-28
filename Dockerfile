@@ -1,3 +1,4 @@
-FROM openjdk:8-alpine
-COPY target/apiportfolio-0.0.1-SNAPSHOT.jar /usr/share/apiportfolio-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["/usr/bin/java", "-jar", "/usr/share/apiportfolio-0.0.1-SNAPSHOT.jar"]
+FROM amazoncorretto:19-alpine-jdk
+MAINTAINER brunoporfidio
+COPY target/apiportfolio-0.0.1-SNAPSHOT.jar apiportfolio-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","/apiportfolio-0.0.1-SNAPSHOT.jar"]
