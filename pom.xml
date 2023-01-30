@@ -97,11 +97,6 @@
             <version>2.7.10</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>jakarta.persistence</artifactId>
-            <version>2.2.3</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.velocity</groupId>
             <artifactId>velocity</artifactId>
             <version>1.7</version>
@@ -113,7 +108,6 @@
             <version>5.3.18</version>
             <type>jar</type>
         </dependency>
-        
     </dependencies>
 
     <build>
