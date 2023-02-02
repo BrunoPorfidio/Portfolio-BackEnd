@@ -28,19 +28,19 @@ public class Persona implements Serializable {
     
       // Relaciones
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn( name = "ip", referencedColumnName = "id")
+    @JoinColumn( name = "persona_id", referencedColumnName = "id")
     List<Skills> skills = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @JoinColumn(name = "persona_id", referencedColumnName = "id")
     List<Experiencia> experiencia = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @JoinColumn(name = "persona_id", referencedColumnName = "id")
     List<Educacion> educacion = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @JoinColumn(name = "persona_id", referencedColumnName = "id")
     List<Proyectos> proyectos = new ArrayList<>();
     
     
