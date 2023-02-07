@@ -31,9 +31,9 @@ public class SkillsController {
 
     @Autowired
     private SkillsRepo skillsRepo;
-    
+
     @Autowired
-    private PersonaRepo personaRepo; 
+    private PersonaRepo personaRepo;
 
     @GetMapping("/ver")
     @ResponseBody
@@ -52,13 +52,13 @@ public class SkillsController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/nuevo/{id}")
-    public void agregarSkills(@RequestBody Skills skills, @PathVariable Long id ) {
-        
+    public void agregarSkills(@RequestBody Skills skills, @PathVariable Long id) {
+
         Persona pers = personaRepo.getById(id);
         pers.getSkills().add(skills);
         skillsService.crearSkills(skills);
     }
-    
+
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/borrar/{id}")
     public void eliminarSkills(@PathVariable Long id) {
@@ -71,5 +71,16 @@ public class SkillsController {
         skillsService.crearSkills(skills);
         return skills;
     }
-
+    
+//        @PreAuthorize("hasRole('ADMIN')")
+//    @PutMapping("/editar/{id}")
+//    public ResponseEntity<Skills> editarSkill(@PathVariable Long id, @RequestBody Skills skill) {
+//        Skills skills = skillsRepo.findById(id)
+//                .orElseThrow(() -> new ResourceNotFoundException("No se encontro Skill con el ID" + id));
+//        skills.setNombreSkill(skill.getNombreSkill());
+//        skills.setFotoSkill(skill.getFotoSkill());
+//
+//        Skills guardarSkills = skillsRepo.save(skill);
+//        return ResponseEntity.ok(guardarSkills);
+//    }
 }
