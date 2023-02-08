@@ -52,17 +52,21 @@ public class SkillsController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/nuevo/{id}")
-    public void agregarSkills(@RequestBody Skills skills, @PathVariable Long id) {
+    public String agregarSkills(@RequestBody Skills skills, @PathVariable Long id) {
 
         Persona pers = personaRepo.getById(id);
         pers.getSkills().add(skills);
         skillsService.crearSkills(skills);
+        
+        return "Skill Creada";
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/borrar/{id}")
-    public void eliminarSkills(@PathVariable Long id) {
+    public String eliminarSkills(@PathVariable Long id) {
         skillsService.eliminarSkills(id);
+    
+        return "Skill Elimina";
     }
 
     @PreAuthorize("hasRole('ADMIN')")
