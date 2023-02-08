@@ -1,7 +1,8 @@
-FROM amazoncorretto:11-alpine-jdk
+FROM eclipse-temurin:19-jdk
 
 MAINTAINER brunoporfidio
 
-COPY target/apiportfolio-0.0.1-SNAPSHOT.jar apiportfolio-0.0.1-SNAPSHOT.jar
+COPY target/apiportfolio-0.0.1-SNAPSHOT.jar apiportfolio.jar
 
-ENTRYPOINT ["java","-jar","/apiportfolio-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","/apiportfolio.jar"]
+
