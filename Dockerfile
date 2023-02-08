@@ -1,4 +1,4 @@
-FROM eclipse-temurin:19-jdk
+FROM amazoncorretto:19
 
 MAINTAINER brunoporfidio
 
