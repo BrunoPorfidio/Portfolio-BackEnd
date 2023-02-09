@@ -1,29 +1,19 @@
-//package com.portfolio.apiportfolio;
-//
-//import javax.servlet.*;
-//import javax.servlet.http.HttpServletResponse;
-//import java.io.IOException;
-//import org.springframework.context.annotation.Configuration;
-//
-//@Configuration
-//public class WebConfig implements Filter{
-//
-// @Override
-// public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-//        HttpServletResponse response = (HttpServletResponse) res;
-//        response.setHeader("Access-Control-Allow-Origin", "*");
-//        response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
-//        response.setHeader("Access-Control-Max-Age", "3600");
-//        response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//        chain.doFilter(req, res);
-//    }
-//
-// @Override
-//    public void init(FilterConfig filterConfig) {}
-//
-// @Override
-//    public void destroy() {}
-//
-//
-//}
-//    
+package com.portfolio.apiportfolio;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.*;
+
+@Configuration
+public class WebConfig implements WebMvcConfigurer{
+
+    @Override
+    public void addCorsMappings(CorsRegistry corsRegistry) {
+        corsRegistry.addMapping( "/**" )
+                .allowedOrigins( "/**" )
+                .allowedMethods( "GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS" )
+                .allowedHeaders( "*" )
+                .allowCredentials( true )
+                .exposedHeaders( "Authorization" )
+                .maxAge( 3600 );
+    }
+    }
