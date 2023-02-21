@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-  <persistence-unit name="com.portfolio_apiportfolio_jar_0.0.1-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.portfolio_api_jar_0.0.1-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://bnv6fddbfq5tbqctship-mysql.services.clever-cloud.com:3306/bnv6fddbfq5tbqctship?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
-      <property name="javax.persistence.jdbc.user" value="uhj4zedeazzduk5b"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://bzqbscxgi6dipoakhamz-mysql.services.clever-cloud.com:3306/bzqbscxgi6dipoakhamz?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+      <property name="javax.persistence.jdbc.user" value="uxfeadee9mtzs4cm"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="i6sUE2WbkiXvryu939r4"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>

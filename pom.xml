@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-<<<<<<< HEAD
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
@@ -17,7 +16,7 @@
 	<properties>
 		<java.version>17</java.version>
 	</properties>
-	<dependencies>
+<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -78,42 +77,42 @@
 			<artifactId>springdoc-openapi-webflux-ui</artifactId>
 			<version>1.6.4</version>
 		</dependency>
-	 <dependency>
-	  <groupId>org.eclipse.persistence</groupId>
-	  <artifactId>org.eclipse.persistence.core</artifactId>
-	  <version>2.7.10</version>
-	 </dependency>
-	 <dependency>
-	  <groupId>org.eclipse.persistence</groupId>
-	  <artifactId>org.eclipse.persistence.asm</artifactId>
-	  <version>9.2.0</version>
-	 </dependency>
-	 <dependency>
-	  <groupId>org.eclipse.persistence</groupId>
-	  <artifactId>org.eclipse.persistence.antlr</artifactId>
-	  <version>2.7.10</version>
-	 </dependency>
-	 <dependency>
-	  <groupId>org.eclipse.persistence</groupId>
-	  <artifactId>org.eclipse.persistence.jpa</artifactId>
-	  <version>2.7.10</version>
-	 </dependency>
-	 <dependency>
-	  <groupId>org.eclipse.persistence</groupId>
-	  <artifactId>org.eclipse.persistence.jpa.jpql</artifactId>
-	  <version>2.7.10</version>
-	 </dependency>
-	 <dependency>
-	  <groupId>org.eclipse.persistence</groupId>
-	  <artifactId>org.eclipse.persistence.moxy</artifactId>
-	  <version>2.7.10</version>
-	 </dependency>
-	 <dependency>
-	  <groupId>org.eclipse.persistence</groupId>
-	  <artifactId>jakarta.persistence</artifactId>
-	  <version>2.2.3</version>
-	 </dependency>
-	</dependencies>
+    <dependency>
+        <groupId>org.eclipse.persistence</groupId>
+        <artifactId>org.eclipse.persistence.core</artifactId>
+      <version>2.7.10</version>
+    </dependency>
+  <dependency>
+    <groupId>org.eclipse.persistence</groupId>
+    <artifactId>org.eclipse.persistence.asm</artifactId>
+    <version>9.2.0</version>
+  </dependency>
+  <dependency>
+    <groupId>org.eclipse.persistence</groupId>
+    <artifactId>org.eclipse.persistence.antlr</artifactId>
+    <version>2.7.10</version>
+  </dependency>
+  <dependency>
+    <groupId>org.eclipse.persistence</groupId>
+    <artifactId>org.eclipse.persistence.jpa</artifactId>
+    <version>2.7.10</version>
+  </dependency>
+  <dependency>
+    <groupId>org.eclipse.persistence</groupId>
+    <artifactId>org.eclipse.persistence.jpa.jpql</artifactId>
+    <version>2.7.10</version>
+  </dependency>
+  <dependency>
+    <groupId>org.eclipse.persistence</groupId>
+    <artifactId>org.eclipse.persistence.moxy</artifactId>
+    <version>2.7.10</version>
+  </dependency>
+  <dependency>
+    <groupId>org.eclipse.persistence</groupId>
+    <artifactId>jakarta.persistence</artifactId>
+    <version>2.2.3</version>
+  </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
@@ -123,133 +122,5 @@
 			</plugin>
 		</plugins>
 	</build>
-=======
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.7</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-    <groupId>com.portfolio</groupId>
-    <artifactId>apiportfolio</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>ApiPortfolio</name>
-    <description>Api para mi Portfolio</description>
-    <properties>
-        <java.version>19</java.version>
-    </properties>
-    <dependencies>
-        <dependency>
-            <artifactId>httpclient5-fluent</artifactId>
-            <groupId>org.apache.httpcomponents.client5</groupId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <artifactId>spring-core</artifactId>
-            <groupId>org.springframework</groupId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>0.9.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.netbeans.modules</groupId>
-            <artifactId>org-netbeans-modules-xml-text</artifactId>
-            <version>RELEASE122</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.core</artifactId>
-            <version>2.7.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.asm</artifactId>
-            <version>9.2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.antlr</artifactId>
-            <version>2.7.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.jpa</artifactId>
-            <version>2.7.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.jpa.jpql</artifactId>
-            <version>2.7.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.moxy</artifactId>
-            <version>2.7.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity</artifactId>
-            <version>1.7</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context-support</artifactId>
-            <version>5.3.18</version>
-            <type>jar</type>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
-                <configuration>
-                    <showDeprecation>false</showDeprecation>
-                </configuration>
-            </plugin>
-        </plugins>	
-    </build>
->>>>>>> 3f98112ea0bde1095d9133fc34fe5c500e87e111
 
 </project>
