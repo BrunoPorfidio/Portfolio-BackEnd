@@ -30,7 +30,6 @@ public class EducacionController {
         return educacionService.verEducacion();
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/nuevo/{id}")
     public void agregarEducacion(@RequestBody Educacion educacion, @PathVariable Long id ) {
         
@@ -39,13 +38,11 @@ public class EducacionController {
         educacionService.crearEducacion(educacion);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/borrar/{id}")
     public void eliminarEducacion(@PathVariable Long id) {
         educacionService.eliminarEducacion(id);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/editar")
     public Educacion editarEducacion(@RequestBody Educacion educacion){
         educacionService.crearEducacion(educacion);
