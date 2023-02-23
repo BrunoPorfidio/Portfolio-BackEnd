@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/experiencia")
-@CrossOrigin
+@CrossOrigin (origins="*")
 public class ExperienciaController {
 
     @Autowired
@@ -30,7 +30,7 @@ public class ExperienciaController {
         return experienciaService.verExperiencia();
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/nuevo/{id}")
     public void agregarExperiencia(@RequestBody Experiencia experiencia, @PathVariable Long id ) {
         
@@ -39,13 +39,13 @@ public class ExperienciaController {
         experienciaService.crearExperiencia(experiencia);
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/borrar/{id}")
     public void eliminarExperiencia(@PathVariable Long id) {
         experienciaService.eliminarExperiencia(id);
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/editar")
     public Experiencia editarExperiencia(@RequestBody Experiencia experiencia){
         experienciaService.crearExperiencia(experiencia);

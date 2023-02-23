@@ -1,7 +1,9 @@
-FROM amazoncorretto:19
+FROM amazoncorretto:8-alpine-jdk
 
 MAINTAINER brunoporfidio
 
-COPY target/apiportfolio-0.0.1-SNAPSHOT.jar apiportfolio-0.0.1-SNAPSHOT.jar
+copy target/apiportfolio-0.0.1-SNAPSHOT.jar api-portfolio.jar
 
-ENTRYPOINT ["java","-jar","/apiportfolio-0.0.1-SNAPSHOT.jar"]
+entrypoint ["java","-jar","/api-portfolio.jar"]
+
+CMD ["/bin/sh"]
