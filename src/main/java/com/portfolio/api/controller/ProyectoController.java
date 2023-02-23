@@ -31,6 +31,7 @@ public class ProyectoController {
         return proyectoService.verProyecto();
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/nuevo/{id}")
     public void agregarProyecto(@RequestBody Proyectos proyectos, @PathVariable Long id ) {
         
@@ -39,11 +40,13 @@ public class ProyectoController {
         proyectoService.crearProyecto(proyectos);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/borrar/{id}")
     public void eliminarProyecto(@PathVariable Long id) {
         proyectoService.eliminarProyecto(id);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/editar")
     public Proyectos editarProyecto(@RequestBody Proyectos proyectos){
         proyectoService.crearProyecto(proyectos);

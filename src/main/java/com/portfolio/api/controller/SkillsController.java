@@ -30,6 +30,7 @@ public class SkillsController {
         return skillsService.verSkills();
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/nuevo/{id}")
     public String agregarSkills(@RequestBody Skills skills, @PathVariable Long id) {
 
@@ -40,6 +41,7 @@ public class SkillsController {
         return "Skill Creada";
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/borrar/{id}")
     public String eliminarSkills(@PathVariable Long id) {
         skillsService.eliminarSkills(id);
@@ -47,6 +49,7 @@ public class SkillsController {
         return "Skill Elimina";
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/editar")
     public Skills editarSkills(@RequestBody Skills skills){
         skillsService.crearSkills(skills);

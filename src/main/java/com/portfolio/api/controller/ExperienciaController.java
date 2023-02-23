@@ -30,6 +30,7 @@ public class ExperienciaController {
         return experienciaService.verExperiencia();
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/nuevo/{id}")
     public void agregarExperiencia(@RequestBody Experiencia experiencia, @PathVariable Long id ) {
         
@@ -38,11 +39,13 @@ public class ExperienciaController {
         experienciaService.crearExperiencia(experiencia);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/borrar/{id}")
     public void eliminarExperiencia(@PathVariable Long id) {
         experienciaService.eliminarExperiencia(id);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/editar")
     public Experiencia editarExperiencia(@RequestBody Experiencia experiencia){
         experienciaService.crearExperiencia(experiencia);
