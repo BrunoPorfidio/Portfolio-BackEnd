@@ -1,4 +1,4 @@
-FROM amazoncorretto:7-alpine-jdk
+FROM openjdk:17jdk-alpine
 
 MAINTAINER brunoporfidio
 
