@@ -1,4 +1,4 @@
-FROM openjdk:17jdk-alpine
+FROM eclipse-temurin:19
 
 MAINTAINER brunoporfidio
 

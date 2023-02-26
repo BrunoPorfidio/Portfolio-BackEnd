@@ -8,11 +8,11 @@
 		<version>2.6.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.portfolio</groupId>
-	<artifactId>api</artifactId>
+	<groupId>com.api</groupId>
+	<artifactId>apiportfolio</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>api</name>
-	<description>api para mi portfolio</description>
+	<name>apiportfolio</name>
+	<description>api de mi portfolio </description>
 	<properties>
 		<java.version>19</java.version>
 	</properties>
