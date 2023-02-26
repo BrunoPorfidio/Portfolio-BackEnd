@@ -1,4 +1,4 @@
-FROM openjdk:17jdk-alpine
+FROM openjdk:19jdk-alpine
 
 MAINTAINER brunoporfidio
 
