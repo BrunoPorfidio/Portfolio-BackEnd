@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/skills")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class SkillsController {
     
     @Autowired
@@ -43,7 +43,7 @@ public class SkillsController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("editar/{id}")
+    @PutMapping("/editar/{id}")
     public Skills editarSkills(@PathVariable("id") Long id,
                                       @RequestBody Skills skills) {
         skills.getIdSkill();
