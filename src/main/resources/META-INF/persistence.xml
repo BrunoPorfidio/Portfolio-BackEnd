@@ -6,7 +6,7 @@
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://portofolioaws.cici35cseom4.us-east-1.rds.amazonaws.com:3306/DB-SR?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="javax.persistence.jdbc.user" value="admin"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="ironmaneslaonda3"/>
+      <property name="javax.persistence.jdbc.password" value="passwordaws1"/>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>
