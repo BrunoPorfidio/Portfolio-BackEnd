@@ -43,7 +43,7 @@ public class SkillsController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/editar/{id}")
+    @PutMapping("editar/{id}")
     public Skills editarSkills(@PathVariable("id") Long id,
                                       @RequestBody Skills skills) {
         skills.getIdSkill();
