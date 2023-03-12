@@ -11,8 +11,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Rol implements Serializable {
-
+public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -20,7 +19,6 @@ public class Rol implements Serializable {
     @Enumerated(EnumType.STRING)
     private RolNombre rolNombre;
 
-    //Constructores
     public Rol() {
     }
 
@@ -28,7 +26,6 @@ public class Rol implements Serializable {
         this.rolNombre = rolNombre;
     }
 
-    //Getters and Setters
     public int getId() {
         return id;
     }
@@ -44,4 +41,6 @@ public class Rol implements Serializable {
     public void setRolNombre(RolNombre rolNombre) {
         this.rolNombre = rolNombre;
     }
+    
+    
 }
