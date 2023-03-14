@@ -20,7 +20,7 @@ public class Persona implements Serializable {
     private String githubUrl;
     private String linkedinUrl;
     private String imgBanner;
-    private int telefono;
+    private String telefono;
     private String email;
     private String ubicacion;
     
@@ -28,7 +28,7 @@ public class Persona implements Serializable {
     public Persona() {
     }
 
-    public Persona(Long id, String nombre, String apellido, String subTitulo, String acercaMi, String urlFoto, String githubUrl, String linkedinUrl, String imgBanner, int telefono, String email, String ubicacion) {
+    public Persona(Long id, String nombre, String apellido, String subTitulo, String acercaMi, String urlFoto, String githubUrl, String linkedinUrl, String imgBanner, String telefono, String email, String ubicacion) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -115,11 +115,11 @@ public class Persona implements Serializable {
         this.imgBanner = imgBanner;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
