@@ -1,7 +1,6 @@
 package com.api.apiportfolio.security.models;
 
 import com.api.apiportfolio.security.enums.RolNombre;
-import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -41,6 +40,4 @@ public class Rol {
     public void setRolNombre(RolNombre rolNombre) {
         this.rolNombre = rolNombre;
     }
-    
-    
 }

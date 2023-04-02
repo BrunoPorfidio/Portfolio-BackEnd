@@ -1,7 +1,6 @@
 package com.api.apiportfolio.model;
 
 import java.io.Serializable;
-import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -15,6 +14,7 @@ public class Persona implements Serializable {
     private String nombre;
     private String apellido;
     private String subTitulo;
+    @Column(length = 500)
     private String acercaMi;
     private String urlFoto;
     private String githubUrl;

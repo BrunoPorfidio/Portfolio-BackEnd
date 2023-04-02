@@ -1,6 +1,5 @@
 package com.api.apiportfolio.security.models;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
