@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "apibuild",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
