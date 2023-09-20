@@ -1,4 +1,4 @@
-FROM eclipse-temurin:19
+FROM eclipse-temurin:17
 
 MAINTAINER brunoporfidio
 
