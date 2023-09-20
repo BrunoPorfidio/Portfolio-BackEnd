@@ -25,6 +25,7 @@ com\api\apiportfolio\security\service\RolService.class
 com\api\apiportfolio\service\ISkillsService.class
 com\api\apiportfolio\security\jwt\JwtProvider.class
 com\api\apiportfolio\model\Educacion.class
+com\api\apiportfolio\CorsConfig.class
 com\api\apiportfolio\service\SkillsService.class
 com\api\apiportfolio\security\service\UserDetailsServiceImpl.class
 com\api\apiportfolio\security\DTO\NuevoUsuario.class

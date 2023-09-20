@@ -19,6 +19,7 @@ C:\Programacion\ArgentinaPrograma\Portfolio-BackEnd\src\main\java\com\api\apipor
 C:\Programacion\ArgentinaPrograma\Portfolio-BackEnd\src\main\java\com\api\apiportfolio\model\Persona.java
 C:\Programacion\ArgentinaPrograma\Portfolio-BackEnd\src\main\java\com\api\apiportfolio\security\jwt\JwtTokenFilter.java
 C:\Programacion\ArgentinaPrograma\Portfolio-BackEnd\src\main\java\com\api\apiportfolio\security\service\RolService.java
+C:\Programacion\ArgentinaPrograma\Portfolio-BackEnd\src\main\java\com\api\apiportfolio\CorsConfig.java
 C:\Programacion\ArgentinaPrograma\Portfolio-BackEnd\src\main\java\com\api\apiportfolio\security\enums\RolNombre.java
 C:\Programacion\ArgentinaPrograma\Portfolio-BackEnd\src\main\java\com\api\apiportfolio\service\IPersonaService.java
 C:\Programacion\ArgentinaPrograma\Portfolio-BackEnd\src\main\java\com\api\apiportfolio\security\models\Rol.java
