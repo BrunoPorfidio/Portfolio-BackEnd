@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.api.apiportfolio.ApiportfolioApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.741 s - in com.api.apiportfolio.ApiportfolioApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.072 s - in com.api.apiportfolio.ApiportfolioApplicationTests
