@@ -1,14 +1,3 @@
-FROM eclipse-temurin:17-jdk-jammy
-
-# Establecer un directorio de trabajo
-WORKDIR /app
-
-# Copiar archivos de tu proyecto al directorio de trabajo
-COPY . /app
-
-# Ejecutar Maven para construir el proyecto
-RUN mvn clean package
-
 # Crear una nueva imagen basada en OpenJDK 17
 FROM openjdk:17-jre-slim-buster
 
@@ -16,7 +5,7 @@ FROM openjdk:17-jre-slim-buster
 EXPOSE 8087
 
 # Copiar el archivo JAR construido desde la etapa anterior
-COPY --from=build /app/target/apiportfolio-0.0.1-SNAPSHOT.jar /app/api-portfolio.jar
+COPY /app/target/apiportfolio-0.0.1-SNAPSHOT.jar /app/api-portfolio.jar
 
 # Establecer el punto de entrada para ejecutar la aplicación
 ENTRYPOINT ["java", "-jar", "/app/api-portfolio.jar"]
