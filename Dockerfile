@@ -1,4 +1,4 @@
-FROM adoptopenjdk:17-jre-hotspot
+FROM eclipse-temurin:17-jdk-jammy
 
 MAINTAINER brunoporfidio
 
