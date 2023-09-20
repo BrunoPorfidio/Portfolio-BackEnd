@@ -1,9 +1,13 @@
-FROM openjdk:17-jdk-alpine
+FROM adoptopenjdk:17-jre-hotspot
 
 MAINTAINER brunoporfidio
 
-copy target/apiportfolio-0.0.1-SNAPSHOT.jar api-portfolio.jar
+COPY target/apiportfolio-0.0.1-SNAPSHOT.jar /app/api-portfolio.jar
 
-entrypoint ["java","-jar","/api-portfolio.jar"]
+ENV PORT 8080
+
+EXPOSE 8080
+
+entrypoint ["java","-jar","/app/api-portfolio.jar"]
 
 CMD ["/bin/sh"]
