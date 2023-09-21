@@ -1,4 +1,4 @@
-FROM openjdk:17-jre-alpine
+FROM amazoncorretto:17.0.7-alpine
 
 LABEL maintainer="brunoporfidio"
 
