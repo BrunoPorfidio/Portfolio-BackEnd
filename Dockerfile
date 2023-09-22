@@ -1,6 +1,6 @@
 FROM amazoncorretto:17-alpine-jdk
 
-LABEL maintainer="brunoporfidio"
+maintainer brunoporfidio
 
 ENV PORT 8080
 
